@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026133454) do
+ActiveRecord::Schema.define(version: 20171026151509) do
+
+  create_table "locker_boxes", force: :cascade do |t|
+    t.string   "identification",               null: false
+    t.string   "name"
+    t.text     "description"
+    t.float    "total_capacity", default: 0.0
+    t.float    "used_capacity",  default: 0.0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "parcels", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "locker_box_id"
+    t.integer  "recipient_id"
+    t.float    "capicity",      null: false
+    t.string   "label_photo",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["locker_box_id"], name: "index_parcels_on_locker_box_id"
+    t.index ["recipient_id"], name: "index_parcels_on_recipient_id"
+  end
 
   create_table "recipients", force: :cascade do |t|
     t.string   "full_name"
@@ -22,7 +44,7 @@ ActiveRecord::Schema.define(version: 20171026133454) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",          null: false
     t.string   "resource_type"
     t.integer  "resource_id"
     t.datetime "created_at"
