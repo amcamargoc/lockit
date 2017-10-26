@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  get '/dashboard', to: 'dashboard#index'
+  devise_for :users, skip: [:registrations]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_scope :user do
+    unauthenticated :user do
+      root to: 'devise/sessions#new'
+    end
+    authenticated :user do
+      root to: 'dashboard#index'
+    end
+  end
+  resources :users
+  resources :recipients
 end
