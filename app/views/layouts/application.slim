@@ -8,14 +8,33 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    .ui.stackable.grid
-      .main-header.five.wide.tablet.three.wide.computer.column
-        header.ui.text.vertical.menu
-          .item.logo
-            = image_tag asset_url('lock.png')
-          .item
-            h1.ui.header LockIt!
-          .item
-            button.ui.button Log out
-      .eleven.wide.tablet.thirteen.wide.computer.column
-        = yield
+    header.main-header
+      .ui.container
+        .ui.text.menu
+          .header.item
+            h1.ui.header
+              = image_tag asset_url('lock.png'), class: 'ui tiny image'
+              |LockIt
+          .right.menu
+            .item
+              button.small.ui.inverted.red.button Logout
+
+    section.main-data
+      .ui.container
+        .ui.stackable.grid
+          .six.wide.tablet.four.wide.computer.column
+            .ui.secondary.vertical.pointing.menu
+              a.item
+                i.users.icon
+                |Recipients
+              a.item
+                i.users.icon
+                |Recipients
+              a.item
+                i.users.icon
+                |Recipients
+              a.item
+                i.users.icon
+                |Recipients
+          .ten.wide.tablet.twelve.wide.computer.column
+            = yield
