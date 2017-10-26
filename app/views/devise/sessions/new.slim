@@ -1,0 +1,24 @@
+.ui.centered.stackable.grid
+  .eight.wide.tablet.six.wide.computer.column
+    .ui.segments.form.holder
+      .ui.segment
+        h1.ui.center.aligned.header
+          = image_tag asset_url('lock.png'), class: 'ui small image'
+          |LockIt
+      .ui.segment
+        = form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'ui form' } do |f|
+          .field
+            = f.label :email
+            = f.email_field :email, autofocus: true
+          .field
+            = f.label :password
+            = f.password_field :password, autocomplete: "off"
+
+          - if devise_mapping.rememberable?
+            .field
+              .ui.checkbox
+                = f.check_box :remember_me 
+                = f.label :remember_me
+          = f.submit 'Log in', class: 'fluid ui submit primary button'
+
+        = render "devise/shared/links"
