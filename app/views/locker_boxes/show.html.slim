@@ -1,0 +1,35 @@
+p#notice = notice
+
+p
+  strong Identification:
+  = @locker_box.identification
+p
+  strong Name:
+  = @locker_box.name
+p
+  strong Description:
+  = @locker_box.description
+
+h2 Parcels
+table
+  thead
+    tr
+      th Name
+      th Recipient
+      th Capicity
+      th
+      th
+      th
+
+  tbody
+    - @locker_box.parcels.each do |parcel|
+      tr
+        td = parcel.name
+        td = link_to parcel.recipient.full_name, recipient_path(parcel.recipient)
+        td = parcel.capicity.round(2)
+        td = link_to 'Show', locker_box_parcel_path(parcel)
+        td = link_to 'Edit', edit_locker_box_parcel_path(parcel)
+        td = link_to 'Destroy', locker_box_parcel_path(parcel), data: { confirm: 'Are you sure?' }, method: :delete
+
+
+= link_to 'Back', locker_boxes_path

@@ -1,0 +1,18 @@
+= form_for @locker_box do |f|
+  - if @locker_box.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@locker_box.errors.count, "error")} prohibited this locker_box from being saved:"
+      ul
+        - @locker_box.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :identification
+    = f.text_field :identification
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions = f.submit

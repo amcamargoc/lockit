@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  locker_box: one
+  recipient: one
+  capicity: 1.5
+
+two:
+  name: MyString
+  locker_box: two
+  recipient: two
+  capicity: 1.5

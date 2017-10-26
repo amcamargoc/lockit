@@ -1,0 +1,27 @@
+h1 Listing parcels
+
+table
+  thead
+    tr
+      th Name
+      th Locker box
+      th Recipient
+      th Capicity
+      th
+      th
+      th
+
+  tbody
+    - @parcels.each do |parcel|
+      tr
+        td = parcel.name
+        td = parcel.locker_box
+        td = parcel.recipient
+        td = parcel.capicity
+        td = link_to 'Show', parcel
+        td = link_to 'Edit', edit_parcel_path(parcel)
+        td = link_to 'Destroy', parcel, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Parcel', new_parcel_path

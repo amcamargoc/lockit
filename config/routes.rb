@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :recipients
+  resources :locker_boxes do
+    resources :parcels
+  end
 end

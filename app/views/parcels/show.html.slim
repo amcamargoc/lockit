@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @parcel.name
+p
+  strong Locker box:
+  = @parcel.locker_box
+p
+  strong Recipient:
+  = @parcel.recipient
+p
+  strong Capicity:
+  = @parcel.capicity
+
+= link_to 'Edit', edit_parcel_path(@parcel)
+'  |
+= link_to 'Back', parcels_path

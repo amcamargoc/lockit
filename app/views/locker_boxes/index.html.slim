@@ -1,0 +1,27 @@
+h1 Listing locker_boxes
+
+table
+  thead
+    tr
+      th Identification
+      th Name
+      th Description
+      th Total capicity
+      th
+      th
+      th
+
+  tbody
+    - @locker_boxes.each do |locker_box|
+      tr
+        td = locker_box.identification
+        td = locker_box.name
+        td = locker_box.description
+        td = "#{locker_box.used_capacity.round(2)} of #{locker_box.total_capacity.round(2)}"
+        td = link_to 'Show', locker_box
+        td = link_to 'Edit', edit_locker_box_path(locker_box)
+        td = link_to 'Destroy', locker_box, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Locker box', new_locker_box_path

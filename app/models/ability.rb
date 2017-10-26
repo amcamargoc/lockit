@@ -7,7 +7,10 @@ class Ability
       can :manage, :all
     elsif user.has_role? :receptionist
       can :manage, Recipient
+      can :manage, LockerBox
+      can :manage, Parcel
       cannot :manage, User
+
     else
       cannot :manage, :all
     end

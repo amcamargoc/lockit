@@ -1,4 +1,6 @@
 class RecipientsController < ApplicationController
+  load_and_authorize_resource
+  check_authorization
   before_action :set_recipient, only: [:show, :edit, :update, :destroy]
 
   def index
