@@ -1,0 +1,43 @@
+// Mixins
+
+$big-phone-screen-width: 480px;
+$small-screen-width: 768px;
+$tablet-screen-width: 840px;
+$medium-screen-width: 992px;
+$large-screen-width: 1200px;
+
+@mixin big-phone-screen {
+  @media (min-width: #{$big-phone-screen-width}) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media (min-width: #{$small-screen-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-screen {
+  @media (min-width: #{$tablet-screen-width}) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media (min-width: #{$medium-screen-width}) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media (min-width: #{$large-screen-width}) {
+    @content;
+  }
+}
+
+@mixin flex-vertical-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

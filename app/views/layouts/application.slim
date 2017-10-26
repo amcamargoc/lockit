@@ -8,4 +8,14 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    = yield
+    .ui.stackable.grid
+      .main-header.five.wide.tablet.three.wide.computer.column
+        header.ui.text.vertical.menu
+          .item.logo
+            = image_tag asset_url('lock.png')
+          .item
+            h1.ui.header LockIt!
+          .item
+            button.ui.button Log out
+      .eleven.wide.tablet.thirteen.wide.computer.column
+        = yield
