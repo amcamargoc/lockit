@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    semantic_breadcrumb 'New receptionist', root_path
+    semantic_breadcrumb 'New Receptionist', root_path
     @user = User.new
   end
 
