@@ -6,6 +6,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :receptionist
+      can :manage, Recipient
       cannot :manage, User
     else
       cannot :manage, :all
