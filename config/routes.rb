@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
+
   devise_scope :user do
-    root to: 'devise/sessions#new'
+    unauthenticated :user do
+      root to: 'devise/sessions#new'
+    end
+    authenticated :user do
+      root to: 'dashboard#index'
+    end
   end
-  get '/dashboard', to: 'dashboard#index'
+  resources :users
 end
