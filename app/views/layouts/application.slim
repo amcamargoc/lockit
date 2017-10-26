@@ -18,7 +18,7 @@ html
                 |LockIt
             .right.menu
               .item
-                button.small.ui.inverted.red.button Logout
+                = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'small ui inverted red button'
 
     section.main-data
       .ui.container

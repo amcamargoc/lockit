@@ -24,3 +24,5 @@ en:
   breadcrumbs:
     application:
       index: 'Home'
+    users:
+      index: 'Recepcionists'

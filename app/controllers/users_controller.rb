@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  semantic_breadcrumb :index, :users_path
   load_and_authorize_resource
   check_authorization
   before_action :authenticate_user!
