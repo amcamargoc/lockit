@@ -1,0 +1,21 @@
+= form_for recipient, html: { class: 'ui form' } do |f|
+  - if recipient.errors.any?
+    .ui.error.message
+      .header
+        = "#{pluralize(recipient.errors.count, 'error')} prohibited this recipient from being saved:"
+      ul.list
+        - recipient.errors.full_messages.each do |msg|
+          li = msg
+
+  .field
+    = f.label :full_name
+    = f.text_field :full_name
+  .two.fields
+    .field
+      = f.label :email
+      = f.email_field :email, autofocus: true
+    .field
+      = f.label :phone_number
+      = f.text_field :phone_number
+
+  = f.submit class: 'ui submit primary button'
