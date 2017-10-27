@@ -1,0 +1,31 @@
+h2.ui.header Recipients
+
+.breadcrumbs
+  = semantic_breadcrumbs
+
+= link_to new_recipient_path, class: 'ui positive button' do
+  i.plus.icon
+  |New Recipient
+
+br
+br
+
+table.ui.celled.table
+  thead
+    tr
+      th Full name
+      th Email
+      th Phone number
+      th Identification
+      th
+  tbody
+    - @recipients.each do |recipient|
+      tr
+        td = recipient.full_name
+        td = recipient.email
+        td = recipient.phone_number
+        td = recipient.identification
+        td
+          = link_to 'Show', recipient
+          = link_to 'Edit', edit_recipient_path(recipient)
+          = link_to 'Destroy', recipient, method: :delete, data: { confirm: 'Are you sure?' }

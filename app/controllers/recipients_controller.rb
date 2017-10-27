@@ -1,4 +1,5 @@
 class RecipientsController < ApplicationController
+  semantic_breadcrumb :index, :recipients_path
   load_and_authorize_resource
   check_authorization
   before_action :set_recipient, only: [:show, :edit, :update, :destroy]
@@ -11,6 +12,7 @@ class RecipientsController < ApplicationController
   end
 
   def new
+    semantic_breadcrumb 'New Recipient', root_path
     @recipient = Recipient.new
   end
 

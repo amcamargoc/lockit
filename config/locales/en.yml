@@ -24,5 +24,7 @@ en:
   breadcrumbs:
     application:
       index: 'Home'
+    recipients:
+      index: 'Recipients'
     users:
       index: 'Recepcionists'
